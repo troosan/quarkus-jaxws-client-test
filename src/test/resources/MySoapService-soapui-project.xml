@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="9a953706-8940-4d57-b010-79d70cc9112a" activeEnvironment="Default" name="MySoapService" resourceRoot="${projectDir}" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="582d7bbf-51ac-4047-8bfa-c45135f79a3c" wsaVersion="NONE" name="MySoapServiceBinding" type="wsdl" bindingName="{http://acme.org/soap-service/V1}MySoapServiceBinding" soapVersion="1_1" anonymous="optional" definition="../../wsdl/services/soap-service/V1/MySoapService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/antoine/Documents/workspaces/ccm/code-with-quarkus/src/wsdl/services/soap-service/V1/MySoapService.wsdl"><con:part><con:url>file:/Users/antoine/Documents/workspaces/ccm/code-with-quarkus/src/wsdl/services/soap-service/V1/MySoapService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://acme.org/soap-service/V1" name="MySoapService" xmlns="http://acme.org/soap-service/V1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://www.w3.org/2001/XMLSchema" xmlns:itf="http://acme.org/soap-service/interfaces/V1">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://acme.org/soap-service/interfaces/V1" schemaLocation="MySoapService_ITF.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="checkServiceHealthRequest">
+    <wsdl:part name="request" element="itf:checkServiceHealthRequest"/>
+  </wsdl:message>
+  <wsdl:message name="checkServiceHealthResponse">
+    <wsdl:part name="response" element="itf:checkServiceHealthResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="MySoapService">
+    <wsdl:operation name="checkServiceHealth">
+      <wsdl:input message="checkServiceHealthRequest"/>
+      <wsdl:output message="checkServiceHealthResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MySoapServiceBinding" type="MySoapService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="checkServiceHealth">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MySoapService">
+    <wsdl:port name="MySoapServicePort" binding="MySoapServiceBinding">
+      <soap:address location="PROVIDE_LOCATION_URL"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>../../wsdl/services/soap-service/V1/MySoapService_ITF.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://acme.org/soap-service/interfaces/V1" elementFormDefault="qualified" version="1.0" xmlns="http://acme.org/soap-service/interfaces/V1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="checkServiceHealthRequest" type="checkServiceHealthRequestType"/>
+  <xsd:element name="checkServiceHealthResponse" type="checkServiceHealthResponseType"/>
+  <xsd:complexType name="checkServiceHealthRequestType">
+    <xsd:sequence>
+      <xsd:element name="checkServiceHealthIn" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="checkServiceHealthResponseType">
+    <xsd:sequence>
+      <xsd:element name="checkServiceHealthOut" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>PROVIDE_LOCATION_URL</con:endpoint><con:endpoint>http://localhost:8088/MySoapService</con:endpoint></con:endpoints><con:operation id="698c552d-4b1e-4fe2-ba84-c8bee5b9e388" isOneWay="false" action="" name="checkServiceHealth" bindingOperationName="checkServiceHealth" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="33c9a128-2b0e-4429-b25e-b8b2c4ebccac" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/MySoapService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://acme.org/soap-service/interfaces/V1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v1:checkServiceHealthRequest>
+         <!--Optional:-->
+         <v1:checkServiceHealthIn>?</v1:checkServiceHealthIn>
+      </v1:checkServiceHealthRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://acme.org/soap-service/V1/MySoapService/checkServiceHealthRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="55ffba01-f6cc-4fdc-9728-b7cccd5a8f3d" port="8088" path="/MySoapService" host="Antoines-MacBook-Pro.local" name="MySoapServiceMock"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="checkServiceHealth" id="8802b082-9c89-4d6d-9f67-01af2a58749f" interface="MySoapServiceBinding" operation="checkServiceHealth"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="96960259-37ea-4cfd-a164-65a87cdbf20b" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://acme.org/soap-service/interfaces/V1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v1:checkServiceHealthResponse>
+         <v1:checkServiceHealthOut>hello</v1:checkServiceHealthOut>
+      </v1:checkServiceHealthResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://acme.org/soap-service/V1/MySoapService/checkServiceHealthResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
