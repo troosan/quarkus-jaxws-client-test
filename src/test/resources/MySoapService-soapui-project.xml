@@ -34,7 +34,7 @@
       <soap:address location="PROVIDE_LOCATION_URL"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>../../wsdl/services/soap-service/V1/MySoapService_ITF.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://acme.org/soap-service/interfaces/V1" elementFormDefault="qualified" version="1.0" xmlns="http://acme.org/soap-service/interfaces/V1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:\Users\antoine\Documents\workspaces\ccm\code-with-quarkus\src\wsdl\services\soap-service\V1\MySoapService_ITF.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://acme.org/soap-service/interfaces/V1" elementFormDefault="qualified" version="1.0" xmlns="http://acme.org/soap-service/interfaces/V1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:element name="checkServiceHealthRequest" type="checkServiceHealthRequestType"/>
   <xsd:element name="checkServiceHealthResponse" type="checkServiceHealthResponseType"/>
   <xsd:complexType name="checkServiceHealthRequestType">
