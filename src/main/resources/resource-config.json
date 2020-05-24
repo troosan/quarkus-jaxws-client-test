@@ -1,0 +1,24 @@
+{
+  "resources":[
+    {"pattern":"\\QMETA-INF/mailcap.default\\E"}, 
+    {"pattern":"\\QMETA-INF/services/io.quarkus.arc.ComponentsProvider\\E"}, 
+    {"pattern":"\\QMETA-INF/services/io.smallrye.config.SmallRyeConfigFactory\\E"}, 
+    {"pattern":"\\QMETA-INF/services/io.vertx.core.spi.BufferFactory\\E"}, 
+    {"pattern":"\\QMETA-INF/services/io.vertx.core.spi.FutureFactory\\E"}, 
+    {"pattern":"\\QMETA-INF/services/io.vertx.core.spi.VertxFactory\\E"}, 
+    {"pattern":"\\QMETA-INF/services/jdk.vm.ci.hotspot.HotSpotJVMCIBackendFactory\\E"}, 
+    {"pattern":"\\QMETA-INF/services/jdk.vm.ci.services.JVMCIServiceLocator\\E"}, 
+    {"pattern":"\\QMETA-INF/services/org.eclipse.microprofile.config.spi.ConfigProviderResolver\\E"}, 
+    {"pattern":"\\QMETA-INF/services/org.eclipse.microprofile.config.spi.ConfigSource\\E"}, 
+    {"pattern":"\\QMETA-INF/services/org.eclipse.microprofile.config.spi.Converter\\E"}, 
+    {"pattern":"\\QMETA-INF/services/org.jboss.logmanager.EmbeddedConfigurator\\E"}, 
+    {"pattern":"\\Qapplication.properties\\E"}, 
+    {"pattern":"\\Qcom/sun/xml/internal/bind/v2/runtime/reflect/opt/FieldAccessor_Ref.class\\E"}, 
+    {"pattern":"\\Qcom/sun/xml/internal/ws/assembler/jaxws-tubes-default.xml\\E"}, 
+    {"pattern":"\\Qcom/sun/xml/internal/ws/util/version.properties\\E"}, 
+    {"pattern":"\\Qorg/jboss/threads/Version.properties\\E"}, 
+    {"pattern":"\\Qorg/slf4j/impl/StaticLoggerBinder.class\\E"}, 
+    {"pattern":"\\Qservices/soap-service/V1/MySoapService.wsdl\\E"}
+  ],
+  "bundles":[]
+}
