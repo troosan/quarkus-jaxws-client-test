@@ -48,6 +48,10 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jackson</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-jsonb</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <resources>
@@ -123,10 +127,29 @@
         <version>2.5</version>
         <executions>
           <execution>
+            <id>generate-local-ws</id>
             <phase>generate-sources</phase>
             <goals>
               <goal>wsimport</goal>
             </goals>
+            <configuration>
+            <wsdlFiles>
+              <wsdlFile>services/soap-service/V1/MySoapService.wsdl</wsdlFile>
+            </wsdlFiles>
+            <wsdlLocation>/services/soap-service/V1/MySoapService.wsdl</wsdlLocation>
+            </configuration>
+          </execution>
+          <execution>
+            <id>generate-vies</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>wsimport</goal>
+            </goals>
+            <configuration>
+              <wsdlUrls>
+                <wsdlUrl>https://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl</wsdlUrl>
+              </wsdlUrls>
+            </configuration>
           </execution>
         </executions>
         <configuration>
@@ -142,10 +165,6 @@
           <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
           <extension>true</extension>
           <verbose>true</verbose>
-          <wsdlFiles>
-            <wsdlFile>services/soap-service/V1/MySoapService.wsdl</wsdlFile>
-          </wsdlFiles>
-          <wsdlLocation>/services/soap-service/V1/MySoapService.wsdl</wsdlLocation>
         </configuration>
       </plugin>
       <plugin>
