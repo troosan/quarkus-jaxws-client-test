@@ -128,7 +128,6 @@
         <executions>
           <execution>
             <id>generate-local-ws</id>
-            <phase>generate-sources</phase>
             <goals>
               <goal>wsimport</goal>
             </goals>
@@ -141,7 +140,6 @@
           </execution>
           <execution>
             <id>generate-vies</id>
-            <phase>generate-sources</phase>
             <goals>
               <goal>wsimport</goal>
             </goals>
