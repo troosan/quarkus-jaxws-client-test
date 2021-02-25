@@ -24,8 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _CheckServiceHealthResponse_QNAME = new QName("http://acme.org/soap-service/interfaces/V1", "checkServiceHealthResponse");
     private final static QName _CheckServiceHealthRequest_QNAME = new QName("http://acme.org/soap-service/interfaces/V1", "checkServiceHealthRequest");
+    private final static QName _CheckServiceHealthResponse_QNAME = new QName("http://acme.org/soap-service/interfaces/V1", "checkServiceHealthResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.acme.soap_service.interfaces.v1
@@ -51,21 +51,29 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CheckServiceHealthResponseType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CheckServiceHealthRequestType }{@code >}
      * 
-     */
-    @XmlElementDecl(namespace = "http://acme.org/soap-service/interfaces/V1", name = "checkServiceHealthResponse")
-    public JAXBElement<CheckServiceHealthResponseType> createCheckServiceHealthResponse(CheckServiceHealthResponseType value) {
-        return new JAXBElement<CheckServiceHealthResponseType>(_CheckServiceHealthResponse_QNAME, CheckServiceHealthResponseType.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CheckServiceHealthRequestType }{@code >}}
-     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CheckServiceHealthRequestType }{@code >}
      */
     @XmlElementDecl(namespace = "http://acme.org/soap-service/interfaces/V1", name = "checkServiceHealthRequest")
     public JAXBElement<CheckServiceHealthRequestType> createCheckServiceHealthRequest(CheckServiceHealthRequestType value) {
         return new JAXBElement<CheckServiceHealthRequestType>(_CheckServiceHealthRequest_QNAME, CheckServiceHealthRequestType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CheckServiceHealthResponseType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CheckServiceHealthResponseType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://acme.org/soap-service/interfaces/V1", name = "checkServiceHealthResponse")
+    public JAXBElement<CheckServiceHealthResponseType> createCheckServiceHealthResponse(CheckServiceHealthResponseType value) {
+        return new JAXBElement<CheckServiceHealthResponseType>(_CheckServiceHealthResponse_QNAME, CheckServiceHealthResponseType.class, null, value);
     }
 
 }

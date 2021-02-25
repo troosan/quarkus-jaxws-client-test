@@ -4,7 +4,7 @@ import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.containsString;
 
 @QuarkusTest
 public class ExampleResourceTest {
@@ -12,10 +12,10 @@ public class ExampleResourceTest {
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/vat/GB/391313073")
+          .when().get("/vat/BE/0506850338")
           .then()
              .statusCode(200)
-             .body(is("hello"));
+             .body(containsString("countryCode"));
     }
 
 }
