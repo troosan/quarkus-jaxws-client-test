@@ -1,30 +1,35 @@
-# code-with-quarkus project
+# Reproduce JAXWS call failing in Quarkus native mode
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## The application works fine in "jar" mode
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
-
-## Running the application in dev mode
-
-You can run your application in dev mode that enables live coding using:
+You can try it out by running:
 ```
 ./mvnw quarkus:dev
 ```
+You can test the app with `http://localhost:8080/vat/NL/001028418B01`, it will return
+```json
+{
+"countryCode": "NL",
+"name": "ING BANK N.V.",
+"valid": true,
+"vat": "001028418B01"
+}
+```
 
-## Packaging and running the application
+## Error when running in native mode
 
-The application is packageable using `./mvnw package`.
-It produces the executable `code-with-quarkus-1.0.0-SNAPSHOT-runner.jar` file in `/target` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/lib` directory.
+When building the app in native mode:
+```
+mvn clean package -Pnative
+./target/code-with-quarkus-1.0.0-SNAPSHOT-runner
+```
 
-The application is now runnable using `java -jar target/code-with-quarkus-1.0.0-SNAPSHOT-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using: `./mvnw package -Pnative`.
-
-Or you can use Docker to build the native executable using: `./mvnw package -Pnative -Dquarkus.native.container-build=true`.
-
-You can then execute your binary: `./target/code-with-quarkus-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image-guide .
+The call to the Webservice is failing with
+```
+Caused by: java.lang.ClassNotFoundException: com.sun.xml.internal.ws.spi.ProviderImpl
+	at com.oracle.svm.core.hub.ClassForNameSupport.forName(ClassForNameSupport.java:60)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:281)
+	at javax.xml.ws.spi.ServiceLoaderUtil.nullSafeLoadClass(ServiceLoaderUtil.java:90)
+	at javax.xml.ws.spi.ServiceLoaderUtil.safeLoadClass(ServiceLoaderUtil.java:123)
+	at javax.xml.ws.spi.ServiceLoaderUtil.newInstance(ServiceLoaderUtil.java:101)
+```
